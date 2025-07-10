@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Questions } from '../Enum/Questions.enum';
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import { Validation, ValidationSchema } from './Validation.schema';
 
 @Schema()
@@ -18,7 +18,13 @@ export class Question {
   description?: string;
 
   @Prop({ type: ValidationSchema, default: {} })
-  validations: Validation;
+  validations?: Validation;
+
+  @Prop({ type: [String] })
+  options?: string[];
+
+  @Prop({ type: mongoose.Schema.Types.ObjectId })
+  _id?: mongoose.Types.ObjectId;
 }
 
 export const QuestionSchema = SchemaFactory.createForClass(Question);

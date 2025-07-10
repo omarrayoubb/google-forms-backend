@@ -6,8 +6,8 @@ import { UsersModule } from './users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 // import { config } from 'dotenv';
-// import { FormsController } from './forms/forms.controller';
-// import { FormsModule } from './forms/forms.module';
+import { FormsController } from './forms/forms.controller';
+import { FormsModule } from './forms/forms.module';
 
 @Module({
   imports: [
@@ -23,12 +23,9 @@ import { MongooseModule } from '@nestjs/mongoose';
       }),
       inject: [ConfigService],
     }),
-    // FormsModule,
+    FormsModule,
   ],
-  controllers: [
-    AppController,
-    //FormsController
-  ],
+  controllers: [AppController, FormsController],
   providers: [AppService],
 })
 export class AppModule {}

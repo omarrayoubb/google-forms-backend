@@ -32,8 +32,8 @@ export class AuthController {
     return this.authService.signUp(signUpDto);
   }
 
-  @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
-  }
+  // @Get('profile')
+  // getProfile(@Request() req) {
+  //   return req.user;
+  // }
 }

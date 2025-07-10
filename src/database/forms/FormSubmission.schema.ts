@@ -4,12 +4,12 @@ import { FormAnswer, FormAnswerSchema } from './FormAnswer.schema';
 @Schema()
 export class FormSubmission {
   @Prop({ type: mongoose.Schema.Types.ObjectId, required: true })
-  userID: mongoose.Types.ObjectId;
+  userId: mongoose.Types.ObjectId;
 
   @Prop({ type: [FormAnswerSchema], required: true })
   userAnswers: FormAnswer[];
   @Prop()
-  SubmissionTime: Date;
+  submissionTime: Date;
 }
 export const FormSubmissionSchema =
   SchemaFactory.createForClass(FormSubmission);

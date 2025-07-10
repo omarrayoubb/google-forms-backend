@@ -7,13 +7,22 @@ import { FormSubmission, FormSubmissionSchema } from './FormSubmission.schema';
 export type FormsDocument = HydratedDocument<Forms>;
 @Schema()
 export class Forms {
+  @Prop({ required: true })
+  title: string;
+
+  @Prop()
+  description?: string;
+
+  @Prop({ required: true, unique: true })
+  formId: string;
+
   @Prop({ type: mongoose.Schema.Types.ObjectId, required: true })
   createdBy: mongoose.Types.ObjectId;
 
-  @Prop({ required: true, default: Date.now })
-  createdAt: Date;
+  @Prop({ required: true })
+  createdAt?: number;
 
-  @Prop()
+  @Prop({ default: false })
   isDeleted: boolean;
 
   @Prop({ type: [QuestionSchema], default: [] })
