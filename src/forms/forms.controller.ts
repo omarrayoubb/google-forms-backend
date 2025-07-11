@@ -19,7 +19,7 @@ import { SubmissionDto } from './dto/submitReq.dto';
 export class FormsController {
   constructor(private readonly formsService: FormsService) {}
   @HttpCode(HttpStatus.OK)
-  @Post()
+  @Post('')
   public postForm(@Request() req, @Body() createReqDto: CreateReqDto) {
     const userId: unknown = req.user.id;
     if (typeof userId === 'string')
