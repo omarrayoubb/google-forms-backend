@@ -15,9 +15,12 @@ import { RegisterResDto } from './Dto/RegisterResDto.dto';
 import { RegisterReqDto } from './Dto/RegisterReqDto.dto';
 // import { AuthGuard } from './auth.guard';
 import { Public } from './Decorators/Public';
+import { ApiOperation } from '@nestjs/swagger';
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
+  @ApiOperation({ summary: 'Login a user' })
+
   @Public()
   @HttpCode(HttpStatus.OK)
   @Post('login')
@@ -25,6 +28,7 @@ export class AuthController {
     // console.log(signInDto);
     return this.authService.signIn(signInDto.email, signInDto.password);
   }
+  @ApiOperation({ summary: 'Register a new user' })
   @Public()
   @HttpCode(HttpStatus.OK)
   @Post('register')
