@@ -25,6 +25,9 @@ export class Question {
 
   @Prop({ type: mongoose.Schema.Types.ObjectId })
   _id?: mongoose.Types.ObjectId;
+
+  @Prop({ default: false })
+  isDeleted: boolean;
 }
 
 export const QuestionSchema = SchemaFactory.createForClass(Question);

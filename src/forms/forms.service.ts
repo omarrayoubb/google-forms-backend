@@ -60,11 +60,11 @@ export class FormsService {
     createReqDto: CreateReqDto,
   ): Promise<CreateResDto> {
     const form = await this.formModel.create({
-      formId: uuid4().toString(),
       createdBy: new mongoose.Types.ObjectId(userID),
       createdAt: Date.now(),
       isDeleted: false,
       responses: [],
+      formId: uuid4(),
       ...createReqDto,
     });
 

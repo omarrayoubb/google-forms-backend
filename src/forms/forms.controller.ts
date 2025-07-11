@@ -22,6 +22,7 @@ export class FormsController {
   @Post('')
   public postForm(@Request() req, @Body() createReqDto: CreateReqDto) {
     const userId: unknown = req.user.id;
+    console.log(req);
     if (typeof userId === 'string')
       return this.formsService.createForm(userId, createReqDto);
   }
